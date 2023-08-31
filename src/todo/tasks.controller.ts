@@ -1,4 +1,10 @@
-import { Controller, Get, NotFoundException, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { TasksService } from './tasks.service';
 // import { TaskModel } from './tasks.model';
 
@@ -13,6 +19,7 @@ export class TasksController {
   }
 
   @Get(':id')
+  //Transforming a number to a number we use the ParseIntPipe tansform method
   getTaskById(@Param('id', ParseIntPipe) id: number) {
     const task = this.tasksService.findTaskById(id);
 
